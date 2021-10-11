@@ -169,7 +169,7 @@ class Main extends PluginBase implements Listener{
 			$world->setBlock(new Vector3($x,$y,$z),new Block(56));
 			break;
 			case 2:
-            $dunya->dropItem(new Vector3($x,$y,$z),Item::get(264));												
+            $world->dropItem(new Vector3($x,$y,$z),Item::get(264));												
 			break;
 			case 2:						
             $world->dropItem(new Vector3($x,$y,$z),Item::get(370));						
