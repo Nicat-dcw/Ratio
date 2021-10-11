@@ -1,5 +1,5 @@
 # Ratio
-[![Download](https://poggit.pmmp.io/p/Ratio)]
+[![](https://poggit.pmmp.io/shield.state/Ratio)](https://poggit.pmmp.io/p/Ratio)
 ### **Ratio plugin is a luck plugin. The more lucky you are, the more you win!**
 
 ### Features
