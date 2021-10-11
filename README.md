@@ -1,6 +1,6 @@
 # Ratio
 [![](https://poggit.pmmp.io/shield.state/Ratio)](https://poggit.pmmp.io/p/Ratio)
-### **Ratio plugin is a luck plugin. The more lucky you are, the more you win!**
+- **Ratio plugin is a luck plugin. The more lucky you are, the more you win!**
 
 ### Features
 - When you break a block (Cobblestone), it gives/puts you something random.
