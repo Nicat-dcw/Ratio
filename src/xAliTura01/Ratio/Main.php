@@ -10,10 +10,6 @@ use pocketmine\block\Block;
 use pocketmine\math\Vector3;
 
 class Main extends PluginBase implements Listener{
-	public function onEnable(){
-		$this->getServer()->getLogger()->info("Ratio plugin activated");
-		$this->getServer()->getPluginManager()->registerEvents($this,$this);
-	}
 	public function blockBreak(BlockBreakEvent $k){
 	$o = $k->getPlayer();
 	$world = $o->getLevel()->getFolderName();
