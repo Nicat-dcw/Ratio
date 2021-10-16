@@ -9,7 +9,7 @@ use pocketmine\item\Item;
 use pocketmine\block\Block;
 use pocketmine\math\Vector3;
 
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase implements Listener 
 
 	public function blockBreak(BlockBreakEvent $k){
 	$o = $k->getPlayer();
@@ -219,5 +219,4 @@ class Main extends PluginBase implements Listener {
 			break;
 	    }	
 	}
-}
 ?>
