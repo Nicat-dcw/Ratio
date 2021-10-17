@@ -9,3 +9,6 @@
 - Since it's new, it's missing a lot, if you want to help, don't hesitate!
 
 ##### *NOTE:* In the ratio plugin when you break the cobblestone, something empty may come out by chance, don't worry, this is a luck plugin, and if you see something missing, please don't forget to report it.
+
+### Credits
+Thanks for the icon from www.flaticon.com
