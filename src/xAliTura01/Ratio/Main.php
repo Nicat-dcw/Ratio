@@ -38,38 +38,38 @@ class Main extends PluginBase implements Listener {
 		$z = $k->getBlock()->getZ();
        	switch($ratio1){
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z),new Block(16));
+			$world->setBlock(new Vector3($x,$y,$z), Block::get(16));
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z),Item::get(266));			
+            $world->dropItem(new Vector3($x,$y,$z), Item::get(266));			
 			break;
 			case 3:
-			$world->setBlock(new Vector3($x,$y,$z),new Block(14));			
+			$world->setBlock(new Vector3($x,$y,$z), Block::get(14));			
 			break;
 			case 4:
-            $world->dropItem(new Vector3($x,$y,$z),Item::get(370));				
+            $world->dropItem(new Vector3($x,$y,$z), Item::get(370));				
 			break;
 		}
 	    switch($ratio2){
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z),new Block(15));
+			$world->setBlock(new Vector3($x,$y,$z), Block::get(15));
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z),Item::get(266));						
+            $world->dropItem(new Vector3($x,$y,$z), Item::get(266));						
 			break;
 			case 3:
-			$world->setBlock(new Vector3($x,$y,$z),new Block(129));			
+			$world->setBlock(new Vector3($x,$y,$z), Block::get(129));			
 			break;
 			case 4:			
-            $world->dropItem(new Vector3($x,$y,$z),Item::get(265));			
+            $world->dropItem(new Vector3($x,$y,$z), Item::get(265));			
 			break;
 	    }
 	    switch($ratio3){
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z),new Block(56));
+			$world->setBlock(new Vector3($x,$y,$z), Block::get(56));
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z),Item::get(264));						
+            $world->dropItem(new Vector3($x,$y,$z), Item::get(264));						
 			break;
 	    }
 	}
@@ -84,38 +84,38 @@ class Main extends PluginBase implements Listener {
 		$z = $k->getBlock()->getZ();
        	switch($ratio1){
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z),new Block(370));
+			$world->setBlock(new Vector3($x,$y,$z), Block::get(370));
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z),Item::get(265));			
+            $world->dropItem(new Vector3($x,$y,$z), Item::get(265));			
 			break;
 			case 3:
-			$world->setBlock(new Vector3($x,$y,$z),new Block(266));			
+			$world->setBlock(new Vector3($x,$y,$z), Block::get(266));			
 			break;
 			case 4:
-            $world->dropItem(new Vector3($x,$y,$z),Item::get(264));				
+            $world->dropItem(new Vector3($x,$y,$z), Item::get(264));				
 			break;
 		}
 	    switch($ratio2){
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z),new Block(370));
+			$world->setBlock(new Vector3($x,$y,$z), Block::get(370));
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z),Item::get(265));						
+            $world->dropItem(new Vector3($x,$y,$z), Item::get(265));						
 			break;
 			case 3:
-			$world->setBlock(new Vector3($x,$y,$z),new Block(266));			
+			$world->setBlock(new Vector3($x,$y,$z), Block::get(266));			
 			break;
 			case 4:			
-            $world->dropItem(new Vector3($x,$y,$z),Item::get(266));			
+            $world->dropItem(new Vector3($x,$y,$z), Item::get(266));			
 			break;
 	    }
 	    switch($ratio3){
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z),new Block(4));
+			$world->setBlock(new Vector3($x,$y,$z), Block::get(4));
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z),Item::get(1));						
+            $world->dropItem(new Vector3($x,$y,$z), Item::get(1));						
 			break;
 	    }	
 	}

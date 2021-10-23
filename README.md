@@ -1,5 +1,6 @@
 # Ratio
-[![](https://poggit.pmmp.io/shield.state/Ratio)](https://poggit.pmmp.io/p/Ratio)<a href="https://poggit.pmmp.io/p/Ratio"><img src="https://poggit.pmmp.io/shield.state/Ratio"></a>
+[![](https://poggit.pmmp.io/shield.state/Ratio)](https://poggit.pmmp.io/p/Ratio)
+<a href="https://poggit.pmmp.io/p/Ratio"><img src="https://poggit.pmmp.io/shield.state/Ratio"></a>   [![](https://poggit.pmmp.io/shield.api/Ratio)](https://poggit.pmmp.io/p/Ratio)<a href="https://poggit.pmmp.io/p/Ratio"><img src="https://poggit.pmmp.io/shield.api/Ratio"></a>
 - **Ratio plugin is a luck plugin. The more lucky you are, the more you win!**
 
 ### Features
