@@ -7,4 +7,4 @@ version: 0.1
 permissions:
   ratio.vip:
     description: "Allow the player to Ratio vip feature"
-    default: "op"
+    default: op
