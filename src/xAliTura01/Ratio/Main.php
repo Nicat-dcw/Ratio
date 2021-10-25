@@ -2,20 +2,24 @@
 
 namespace xAliTura01\Ratio;
 
-use pocketmine\plugin\PluginBase;
-use pocketmine\event\Listener;
-use pocketmine\event\block\BlockBreakEvent;
+use pocketmine\Player;
 use pocketmine\item\Item;
 use pocketmine\block\Block;
 use pocketmine\math\Vector3;
+use pocketmine\event\Listener;
+use pocketmine\plugin\PluginBase;
+use pocketmine\event\block\BlockBreakEvent;
+
 use ReflectionClass;
 use pocketmine\resourcepacks\ZippedResourcePack;
 use pocketmine\network\mcpe\protocol\PlaySoundPacket;
 
-class Main extends PluginBase implements Listener {
-    	public function onEnable()
-    	{
-    	        $this->getServer()->getPluginManager()->registerEvents($this, $this);
+class Main extends PluginBase implements Listener
+{
+
+	public function onEnable() : void
+	{
+		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 
 		$this->saveResource("Ratio.mcpack", true);
 
@@ -40,23 +44,26 @@ class Main extends PluginBase implements Listener {
 		$property = $reflection->getProperty("serverForceResources");
 		$property->setAccessible(true);
 		$property->setValue($manager, true);
-    	}
-	public function blockBreak(BlockBreakEvent $k){
-	$o = $k->getPlayer();
-	$world = $o->getLevel()->getFolderName();
-	$name = $o->getName();
-	if($world = $name){
-	if($k->getBlock()->getId() == 4){
-		if($o->hasPermission("ratio.vip")){
-			$this->ratioVip($k);		
-		}else{
-			$this->ratioPlayer($k);
+	}
+
+	public function blockBreak(BlockBreakEvent $event)
+	{
+		$player = $event->getPlayer();
+		$name = $player->getName();
+		$world = $player->getLevel()->getFolderName();
+		if ($world = $name) {
+			if ($event->getBlock()->getId() == 4) {
+				if ($player->hasPermission("ratio.vip")) {
+					$this->ratioVip($event);
+				}else{
+					$this->ratioPlayer($event);
+				}
+			}
 		}
 	}
-	}
-	}
-	public function music($k){
-	    $player = $event->getPlayer();
+
+	public function playMusic(Player $player)
+	{
 		$packet = new PlaySoundPacket();
 		$packet->soundName = "Ratio";
 		$packet->x = $player->getX();
@@ -66,116 +73,122 @@ class Main extends PluginBase implements Listener {
 		$packet->pitch = 1;
 		$player->sendDataPacket($packet);
 	}
-	public function ratioVip($k){
+
+	public function ratioVip($event)
+	{
+		$player = $event->getPlayer();
 		$ratio1 = rand(1,30);
 		$ratio2 = rand(1,30);
 		$ratio3 = rand(1,35);
-		$w = $k->getPlayer()->getLevel()->getFolderName();
+		$w = $event->getPlayer()->getLevel()->getFolderName();
 		$world = $this->getServer()->getLevelByName($w);
-		$x = $k->getBlock()->getX();
-		$y = $k->getBlock()->getY();
-		$z = $k->getBlock()->getZ();
-       	switch($ratio1){
+		$x = $event->getBlock()->getX();
+		$y = $event->getBlock()->getY();
+		$z = $event->getBlock()->getZ();
+		switch ($ratio1) {
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z), Block::get(16));
-			music();
+				$world->setBlock(new Vector3($x,$y,$z), Block::get(16));
+				$this->playMusic($player);
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z), Item::get(266));	
-            music();
+				$world->dropItem(new Vector3($x,$y,$z), Item::get(266));
+				$this->playMusic($player);
 			break;
 			case 3:
-			$world->setBlock(new Vector3($x,$y,$z), Block::get(14));	
-			music();
+				$world->setBlock(new Vector3($x,$y,$z), Block::get(14));
+				$this->playMusic($player);
 			break;
 			case 4:
-            $world->dropItem(new Vector3($x,$y,$z), Item::get(370));	
-            music();
+				$world->dropItem(new Vector3($x,$y,$z), Item::get(370));
+				$this->playMusic($player);
 			break;
 		}
-	    switch($ratio2){
+		switch ($ratio2) {
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z), Block::get(15));
-			music();
+				$world->setBlock(new Vector3($x,$y,$z), Block::get(15));
+				$this->playMusic($player);
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z), Item::get(266));
-            music();
+				$world->dropItem(new Vector3($x,$y,$z), Item::get(266));
+				$this->playMusic($player);
 			break;
 			case 3:
-			$world->setBlock(new Vector3($x,$y,$z), Block::get(129));	
-			music();
+				$world->setBlock(new Vector3($x,$y,$z), Block::get(129));
+				$this->playMusic($player);
 			break;
-			case 4:			
-            $world->dropItem(new Vector3($x,$y,$z), Item::get(265));
-            music();
+			case 4:
+				$world->dropItem(new Vector3($x,$y,$z), Item::get(265));
+				$this->playMusic($player);
 			break;
-	    }
-	    switch($ratio3){
+		}
+		switch($ratio3){
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z), Block::get(56));
-			music();
+				$world->setBlock(new Vector3($x,$y,$z), Block::get(56));
+				$this->playMusic($player);
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z), Item::get(264));
-            music();
+				$world->dropItem(new Vector3($x,$y,$z), Item::get(264));
+				$this->playMusic($player);
 			break;
-	    }
+		}
 	}
-	public function ratioPlayer($k){
+
+	public function ratioPlayer($event)
+	{
+		$player = $event->getPlayer();
 		$ratio1 = rand(1,90);
 		$ratio2 = rand(1,90);
 		$ratio3 = rand(1,90);
-		$w = $k->getPlayer()->getLevel()->getFolderName();
+		$w = $event->getPlayer()->getLevel()->getFolderName();
 		$world = $this->getServer()->getLevelByName($w);
-		$x = $k->getBlock()->getX();
-		$y = $k->getBlock()->getY();
-		$z = $k->getBlock()->getZ();
-       	switch($ratio1){
+		$x = $event->getBlock()->getX();
+		$y = $event->getBlock()->getY();
+		$z = $event->getBlock()->getZ();
+		switch ($ratio1) {
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z), Block::get(370));
-			music();
+				$world->setBlock(new Vector3($x,$y,$z), Block::get(370));
+				$this->playMusic($player);
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z), Item::get(265));	
-            music();
+				$world->dropItem(new Vector3($x,$y,$z), Item::get(265));
+				$this->playMusic($player);
 			break;
 			case 3:
-			$world->setBlock(new Vector3($x,$y,$z), Block::get(266));	
-			music();
+				$world->setBlock(new Vector3($x,$y,$z), Block::get(266));
+				$this->playMusic($player);
 			break;
 			case 4:
-            $world->dropItem(new Vector3($x,$y,$z), Item::get(264));	
-            music();
+				$world->dropItem(new Vector3($x,$y,$z), Item::get(264));
+				$this->playMusic($player);
 			break;
 		}
-	    switch($ratio2){
+		switch ($ratio2) {
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z), Block::get(370));
-			music();
+				$world->setBlock(new Vector3($x,$y,$z), Block::get(370));
+				$this->playMusic($player);
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z), Item::get(265));
-            music();
+				$world->dropItem(new Vector3($x,$y,$z), Item::get(265));
+				$this->playMusic($player);
 			break;
 			case 3:
-			$world->setBlock(new Vector3($x,$y,$z), Block::get(266));		
-			music();
+				$world->setBlock(new Vector3($x,$y,$z), Block::get(266));
+				$this->playMusic($player);
 			break;
-			case 4:			
-            $world->dropItem(new Vector3($x,$y,$z), Item::get(266));			
-            music();
+			case 4:
+				$world->dropItem(new Vector3($x,$y,$z), Item::get(266));
+				$this->playMusic($player);
 			break;
-	    }
-	    switch($ratio3){
+		}
+		switch ($ratio3) {
 			case 1:
-			$world->setBlock(new Vector3($x,$y,$z), Block::get(4));
-			music();
+				$world->setBlock(new Vector3($x,$y,$z), Block::get(4));
+				$this->playMusic($player);
 			break;
 			case 2:
-            $world->dropItem(new Vector3($x,$y,$z), Item::get(1));		
-            music();
+				$world->dropItem(new Vector3($x,$y,$z), Item::get(1));
+				$this->playMusic($player);
 			break;
-	    }	
+		}
 	}
 }
