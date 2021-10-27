@@ -1,0 +1,8 @@
+# Default Player Message
+player-message: "Şanslısın, bloğu kırdın ve özel bir şey çıkmış!"
+
+# Default Vip Message
+vip-message: "Süper, şans ve ekstra vip desteği alarak güzel bir şey çıkardın!"
+
+# No Such Message
+no-such-message: "HATA! Böyle bir mesaj bulunamadı!"
