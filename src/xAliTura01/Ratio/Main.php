@@ -27,9 +27,11 @@ class Main extends PluginBase implements Listener
         $this->saveResource('en_EN.yml');
         $this->saveResource('tr_TR.yml');
         $this->saveResource('config.yml');
+public function langg() extends {
         $this->LangConfig = ["en_EN" => new Config($this->getDataFolder() . "en_EN.yml", Config::YAML),
                              "tr_TR" => new Config($this->getDataFolder() . "tr_TR.yml", Config::YAML)
                             ];
+} /*Ornek: langg.LangConfig.messages = ["ratio.vip"]*/
 	}
 
 	public function onEnable() : void
